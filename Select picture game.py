@@ -119,7 +119,7 @@ class GuessThePicture(QWidget):
         self.current_word = random.choice(self.words[index])  # Случайный выбор варианта слова из списка
 
         # Загрузка и отображение картинки
-        picture_path = os.path.join("Y:\Select picture game\pictures", self.current_picture)  # Замените "pictures" на путь к вашей папке с картинками
+        picture_path = os.path.join("pictures", self.current_picture)  # Используем относительный путь
         if os.path.exists(picture_path):
             pixmap = QPixmap(picture_path)
             self.picture_label.setPixmap(pixmap.scaledToWidth(300))
@@ -142,7 +142,7 @@ class GuessThePicture(QWidget):
             self.lives_label.setText(f"Жизни: {self.lives}")
             if self.lives == 0:
                 self.back_to_main_menu()
-
+    
     def show_rules(self):
         QMessageBox.information(self, "Правила игры", "Правила игры:\n\n1. Перед вами будет показана картинка.\n2. Вам нужно ввести в поле ввода слово, которое соответствует изображению.\n3. Нажмите кнопку \"Проверить\", чтобы проверить свой ответ.")
 
